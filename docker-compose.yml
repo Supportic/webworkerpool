@@ -1,0 +1,19 @@
+version: '3'
+services:
+  serve:
+    image: node:${NODE_VER:-16.15-alpine}
+    container_name: node-server
+    working_dir: ${APP_DIR}
+    ports:
+      - ${PORT:-8080}:${PORT:-8080}
+    volumes:
+      - .:${APP_DIR}
+      - exclude_node_modules:${APP_DIR}/node_modules
+    # overwrite default node entrypoint
+    entrypoint: ""
+    command: /bin/sh -c "npm ci && npx serve -l ${PORT} ."
+    tty: true # docker run -t
+    stdin_open: true # docker run -i
+volumes:
+  exclude_node_modules:
+    name: exclude_node_modules

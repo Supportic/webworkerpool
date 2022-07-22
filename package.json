@@ -1,0 +1,15 @@
+{
+  "name": "webworkerpool",
+  "version": "1.0.0",
+  "description": "Spawns the maximum number of web workers and reuse them if more tasks are queued.",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve -l 80 ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.0.1"
+  }
+}
